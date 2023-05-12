@@ -9,7 +9,9 @@ This section describes the setup process for `SlymeGPT`.
 ### Step 1. Download Chrome WebDriver
 Open `Chrome -> Settings -> About Chrome`  
 to find your Chrome version (update to latest if available).  
+![Chrome version in Settings](assets/step1_chrome_ver.png)  
 Then go to https://chromedriver.chromium.org/downloads and download the corresponding version.
+![Webdriver download](assets/step1_webdriver_dl.png)  
 Add the Chrome WebDriver to your system's PATH variable.
 <details>
     <summary>HOW TO ADD TO PATH</summary>
@@ -32,6 +34,7 @@ The profiles can be found in the the Chrome directory.
 
 After selecting a profile, run `python open_browser.py` to open a Selenium-controlled browser.  
 You should see the following screen:  
+![ChatGPT Home Screen](assets/step2_chatgpt_login.png)  
 From there, log in to ChatGPT (make sure to enable 'Stay Logged In') and click through any first-time login notifications.  
 Once complete, close the window and press ENTER in the CLI (or just terminate `open_browser.py`).
 
