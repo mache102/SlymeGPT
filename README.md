@@ -10,6 +10,7 @@ This program was created for educational purposes only. The user is solely respo
 
 ## Setup
 This section describes the setup process for `SlymeGPT`.
+(Be sure to clone the repository with `https://github.com/mache102/SlymeGPT.git` first)
 ### Step 1. Download Chrome WebDriver
 Open `Chrome -> Settings -> About Chrome`  
 to find your Chrome version (update to latest if available).  
