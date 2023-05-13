@@ -1,11 +1,16 @@
-# SlymeGPT
+# SlymeGPT <img src="assets/slyme.png" width="48" height="48">
 ## About
 OpenAI GPT API replication with `selenium webdriver` and `undetectable chromedriver`.  
 **NOTE:** Uses Chrome.  
 Interacts with the official ChatGPT website and sends responses back to the caller, entirely free of charge (as opposed to the official API).  
 Does **NOT** use any endpoints (`forefront`, `theb`, etc.)
+
+## Disclaimer
+This program was created for educational purposes only. The user is solely responsible for any actions taken using this program. The creator of this program does not assume any responsibility or liability for any misuse of this program or any damages that may result from the use of this program.
+
 ## Setup
 This section describes the setup process for `SlymeGPT`.
+(Be sure to clone the repository with `https://github.com/mache102/SlymeGPT.git` first)
 ### Step 1. Download Chrome WebDriver
 Open `Chrome -> Settings -> About Chrome`  
 to find your Chrome version (update to latest if available).  
@@ -41,6 +46,10 @@ Once complete, close the window and press ENTER in the CLI (or just terminate `o
 ### Step 3. Use Module
 The setup is complete. You can now use the module in your program by importing `from slyme import SlymeDriver`.
 For a demonstration, see `example.py`, a simple program which takes the user's inputs, forwards them to ChatGPT, and sends the responses back to the user.
+
+### Notes
+Please run the module with a **visible UI (not headless)**. The browser window will **automatically minimize** after a few seconds.  
+*Attempting to run the module in headless mode or minimizing the browser window manually may result in issues (appears to be a Selenium/UC problem).*
 
 ## Functionalities
 Below is a code snippet which exhibits and explains each function that comes with the module:
@@ -79,5 +88,4 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-
 
