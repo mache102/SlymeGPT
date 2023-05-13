@@ -9,8 +9,8 @@ Does **NOT** use any endpoints (`forefront`, `theb`, etc.)
 This program was created for educational purposes only. The user is solely responsible for any actions taken using this program. The creator of this program does not assume any responsibility or liability for any misuse of this program or any damages that may result from the use of this program.
 
 ## Setup
-This section describes the setup process for `SlymeGPT`.
-(Be sure to clone the repository with `https://github.com/mache102/SlymeGPT.git` first)
+This section describes the setup process for `SlymeGPT`.  
+(Be sure to clone the repository with `https://github.com/mache102/SlymeGPT.git` first and download packages `pip install -r requirements.txt`)
 ### Step 1. Download Chrome WebDriver
 Open `Chrome -> Settings -> About Chrome`  
 to find your Chrome version (update to latest if available).  
