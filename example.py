@@ -1,9 +1,13 @@
 from slyme import SlymeDriver
+import time
 
 def main():
 
     slyme = SlymeDriver(pfname='Default')
+    time.sleep(5)
     slyme.select_latest_chat()
+    time.sleep(5)
+    
 
     while True:
         prompt = input('Input a prompt:  ')

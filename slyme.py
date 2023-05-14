@@ -18,6 +18,7 @@ def driver_refresh(func):
     @functools.wraps(func)
     def wrapper(self, *args, **kwargs):
         self.driver.implicitly_wait(self.wait_sec)
+        time.sleep(1)
         try:
             return func(self, *args, **kwargs)
         except selexcept.WebDriverException as e:
@@ -74,6 +75,7 @@ class ChatMain:
 
         self.selected_chat = UNTITLED_PLACEHOLDER
         self.logger.info(f'Response successfully generated: "{char_limited_response}"')
+
         return response
 
     def await_element(self):
@@ -162,8 +164,7 @@ class ChatSidebar:
     def select_chat(self, chat_name):
         chat_elements = self.driver.find_elements(By.CSS_SELECTOR, self.config.get('css', 'chat_elements'))
         for chat_element in chat_elements:
-            chat_name = chat_element.text
-            if chat_name == chat_name:
+            if chat_element.text == chat_name:
                 chat_element.click()
 
                 data_proj_id = self.get_proj(chat_element)
@@ -229,7 +230,7 @@ class ChatSidebar:
 
 
 class SlymeDriver(ChatMain, ChatSidebar):
-    def __init__(self, pfname='Default', debug=False, wait_sec=10):
+    def __init__(self, pfname='Default', debug=False, wait_sec=60):
         self.wait_sec = wait_sec        
         self.config = configparser.ConfigParser()
         self.config.read('config.ini')
@@ -287,10 +288,25 @@ class SlymeDriver(ChatMain, ChatSidebar):
             pass
     """
 
-    def enter_field(self, type, name, input, sec=1):
+    def enter_field(self, type, name, input, 
+                    sec=1, split_len=128):
 
         field = self.driver.find_element(type, name)
-        field.send_keys(input)
+
+        # if len(input) > split_len:
+        #     substr_list = []
+        #     while len(input) > split_len:
+        #         substr = input[:split_len]
+        #         substr_list.append(substr)
+        #         input = input[split_len:]
+            
+        #     substr_list.append(input)
+        #     for substr in substr_list:
+        #         field.send_keys(substr)
+        # else:
+        #     field.send_keys(input) 
+
+        self.driver.execute_script("arguments[0].value = arguments[1]", field, input)
         field.send_keys(Keys.ENTER)
 
         char_limited_input = char_limiter(input)
